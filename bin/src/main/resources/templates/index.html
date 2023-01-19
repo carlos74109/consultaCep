@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org/">
+<head>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+  <meta charset="UTF-8">
+
+  <title>Consulte seu Cep</title>
+    <link rel="icon" type="image/png" href="https://image.shutterstock.com/image-vector/post-box-letters-mails-260nw-1207522489.jpg"/>
+</head>
+<body>
+
+    <nav class="navbar" style="background-color: #e3f2fd;">
+        <div class="container-fluid" >
+            <a class="navbar-brand" href="/"><h3>Consulte seu Cep</h3></a>
+        </div>
+    </nav>
+
+
+    <div class="row gy-5" style="padding: 3rem;">
+           <span  class="alert alert-danger" style="display: none" id="span" th:text="${msgErro}"></span>
+
+
+        <div class="container-fluid" style="margin-top: 350px; margin-left: 60em; width: 66%;">
+
+        <form data-netlify="true" class="d-flex" role="search" action="/cep" method="post">
+            <div class="mb-3">
+                <label style="font-size: 25px" class="form-label">Digite seu Cep:</label>
+                <input class="form-control me-2" style="width: 320px; " name="cep" type="search" maxlength="9" minlength="8" required="required" placeholder="Digite o seu Cep" aria-label="Search">
+                <br>
+                <button id="liveAlertBtn" class="btn btn-outline-success" type="submit">Consultar</button>
+            </div>
+
+        </form>
+
+        </div>
+    </div>
+
+<script>
+
+    const spanAlert = document.getElementById('span')
+    spanAlert.style.display = 'none';
+    console.log(spanAlert)
+
+    if(spanAlert.innerText == "Cep não existe"){
+        spanAlert.style.display = 'block';
+    }
+
+</script>
+</body>
+</html>
