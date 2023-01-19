@@ -1,0 +1,70 @@
+  <!DOCTYPE html>
+  <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org/">
+  <head>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <meta charset="UTF-8">
+    <title>Consulte seu Cep</title>
+    <link rel="icon" type="image/png" href="https://image.shutterstock.com/image-vector/post-box-letters-mails-260nw-1207522489.jpg"/>
+  </head>
+  <body>
+
+  <nav class="navbar" style="background-color: #e3f2fd;">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="/"><h3>Consulte seu Cep</h3></a>
+    </div>
+  </nav>
+
+  <div class="row gy-5" style="padding: 3rem;">
+
+    <div class="container-fluid" style="margin-top: 150px; margin-left: 60em; width: 66%;">
+
+      <form  class="d-flex" role="search" action="/cep" method="get">
+        <div class="mb-3">
+          <label style="font-size: 25px" class="form-label">Digite seu Cep:</label>
+          <input class="form-control me-2" style="width: 320px;" required="required" name="cep" type="search" placeholder="Digite o seu Cep" aria-label="Search">
+          <br>
+          <button class="btn btn-outline-success" type="submit">Consultar</button>
+        </div>
+
+      </form>
+
+    </div>
+
+    <div class="card" style="width: 30rem; margin-top: 60px; margin-left: 60em;">
+      <ul class="list-group list-group-flush">
+        <label style="font-size: 23px;">Cep:</label>
+        <b><li style="font-size: 19px;" class="list-group-item" th:text="${cep.cep}"></li></b>
+
+        <label style="font-size: 23px;">Logradouro:</label>
+        <b><li style="font-size: 19px;" class="list-group-item" th:text="${cep.logradouro}"></li></b>
+
+        <label style="font-size: 23px;">Complemento:</label>
+        <b><li style="font-size: 19px;" class="list-group-item" th:text="${cep.complemento}"></li></b>
+
+        <label style="font-size: 23px;">Bairro:</label>
+        <b><li style="font-size: 19px;" class="list-group-item" th:text="${cep.bairro}"></li></b>
+
+        <label style="font-size: 23px;">Localidade:</label>
+        <b><li style="font-size: 19px;" class="list-group-item" th:text="${cep.localidade}"></li></b>
+
+        <label style="font-size: 23px;">Uf:</label>
+        <b><li style="font-size: 19px;" class="list-group-item"th:text="${cep.uf}"></li></b>
+
+        <label style="font-size: 23px;">DDD:</label>
+        <b><li style="font-size: 19px;" class="list-group-item"th:text="${cep.ddd}"></li></b>
+
+        <label style="font-size: 23px;">Ibge:</label>
+        <b><li style="font-size: 19px;" class="list-group-item"th:text="${cep.ibge}"></li></b>
+
+        <label style="font-size: 23px;">Gia:</label>
+        <b><li style="font-size: 19px;" class="list-group-item"th:text="${cep.gia}"></li></b>
+
+        <label style="font-size: 23px;">Siafi:</label>
+        <b><li style="font-size: 19px;" class="list-group-item"th:text="${cep.siafi}"></li></b>
+        <br>
+      </ul>
+    </div>
+
+  </div>
+  </body>
+  </html>
