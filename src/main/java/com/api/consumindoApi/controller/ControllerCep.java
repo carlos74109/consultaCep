@@ -19,13 +19,8 @@ public class ControllerCep {
         return "index";
     }
 
-    @GetMapping("/exibirCep")
-    public String exibirCep() {
-        return "exibirCep";
-    }
-
-    @PostMapping("/cep")
-    public String consultaCep(CepDto cepDto, RedirectAttributes redirectAttributes) throws Exception{
+    @GetMapping("/cep")
+    public ModelAndView consultaCep(CepDto cepDto, RedirectAttributes redirectAttributes) throws Exception{
         ModelAndView mv = new ModelAndView("exibirCep");
 
         RestTemplate restTemplate = new RestTemplate();
@@ -35,16 +30,13 @@ public class ControllerCep {
         try {
 
             Cep cep1 = restTemplate.getForObject("https://viacep.com.br/ws/" + cepDto.cep() + "/json/", Cep.class);
-            redirectAttributes.addFlashAttribute("cep", cep1);
-
-            return "redirect:/exibirCep";
+            mv.addObject("cep", cep1);
+            return mv;
         }catch (Exception e){
             redirectAttributes.addFlashAttribute("msgErro", "Cep não existe");
-            return "redirect:/";
+            return new ModelAndView("redirect:/");
         }
     }
-
-
 
 
 }
